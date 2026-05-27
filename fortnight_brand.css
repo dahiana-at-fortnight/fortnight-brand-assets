@@ -1,0 +1,354 @@
+/* =========================================================================
+   FORTNIGHT STUDIO — BRAND CSS
+   For AI-generated social slides, carousels, and visual content.
+   Used by Layer 3 of the n8n marketing workflow.
+
+   The agent writes HTML using these tokens and classes.
+   HTMLCSStoImage (or similar) renders the HTML to PNG.
+
+   Swap font URLs at the top if/when the real Fortnight typefaces are
+   available as web fonts. Everything else is locked to the brand guidelines.
+   ========================================================================= */
+
+/* ---- Font imports (Google Fonts placeholders — replace with Fortnight's
+        actual webfont URLs when available) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- PRIMARY PALETTE (from Brand Guidelines page 2) ---- */
+  --fn-snow:      #FFFFFF;   /* Primary light. Backgrounds, text on dark. */
+  --fn-charcoal:  #000000;   /* Primary dark. Used for high-contrast text/blocks. */
+  --fn-graphite:  #8C8C8C;   /* Tertiary. Lighter text, dividers, low-emphasis. */
+
+  /* ---- HIGHLIGHT (from Brand Guidelines page 3) ---- */
+  --fn-pink:      #FF7D9B;   /* "Punch Pink". CTAs, highlighted words, accents.
+                                Use sparingly — never as a full background
+                                except for explicit highlight blocks. */
+
+  /* ---- BRAND-OBSERVED EXTENDED PALETTE (from cover + applications) ----
+     The brand cover uses a near-black navy as background rather than pure
+     black. Included for fidelity to existing assets. */
+  --fn-midnight:  #0D1729;   /* Cover navy. Use as dark-mode background. */
+
+  /* ---- TYPOGRAPHY ---- */
+  --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
+  --fn-font-body:    'Inter', system-ui, sans-serif;
+
+  /* Display weight is heavy. Body is regular/medium. */
+  --fn-weight-display: 800;
+  --fn-weight-body:    400;
+  --fn-weight-body-emphasis: 600;
+
+  /* Type scale (1080x1080 base canvas) */
+  --fn-size-display-xl: 140px;   /* hero slide titles */
+  --fn-size-display-lg: 96px;    /* standard slide titles */
+  --fn-size-display-md: 72px;    /* sub-titles */
+  --fn-size-display-sm: 56px;    /* small titles */
+  --fn-size-body-lg:    36px;    /* large body, callouts */
+  --fn-size-body-md:    28px;    /* standard body */
+  --fn-size-body-sm:    22px;    /* secondary body, captions */
+  --fn-size-label:      18px;    /* hashtags, eyebrow labels */
+
+  --fn-line-display: 0.95;
+  --fn-line-body:    1.4;
+  --fn-tracking-display: -0.02em;
+  --fn-tracking-label:   0.08em;
+
+  /* ---- SPACING ---- */
+  --fn-pad-slide:  80px;   /* canvas inner padding */
+  --fn-pad-block:  48px;   /* between major blocks */
+  --fn-pad-line:   24px;   /* between paragraphs */
+  --fn-pad-tight:  12px;   /* tight stacks */
+
+  /* ---- LAYOUT ---- */
+  --fn-radius-card: 0px;   /* Brand uses sharp corners. Do not round. */
+  --fn-border-rule: 4px;   /* heavy rule, used for emphasis lines */
+
+  /* ---- CANVAS SIZES ---- */
+  --fn-canvas-square:   1080px;  /* Instagram square, carousel */
+  --fn-canvas-portrait: 1350px;  /* Instagram portrait height */
+  --fn-canvas-landscape-w: 1200px; /* LinkedIn landscape width */
+  --fn-canvas-landscape-h: 627px;  /* LinkedIn landscape height */
+  --fn-canvas-twitter-w:   1200px; /* Twitter card width */
+  --fn-canvas-twitter-h:   675px;  /* Twitter card height */
+}
+
+/* =========================================================================
+   BASE
+   ========================================================================= */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body);
+  line-height: var(--fn-line-body);
+  color: var(--fn-charcoal);
+  background: var(--fn-snow);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================================
+   CANVAS — every slide is one of these
+   The agent picks the canvas class based on platform/format.
+   ========================================================================= */
+
+.fn-canvas {
+  position: relative;
+  overflow: hidden;
+  padding: var(--fn-pad-slide);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fn-font-body);
+}
+
+.fn-canvas--square {
+  width: var(--fn-canvas-square);
+  height: var(--fn-canvas-square);
+}
+
+.fn-canvas--portrait {
+  width: var(--fn-canvas-square);
+  height: var(--fn-canvas-portrait);
+}
+
+.fn-canvas--landscape {
+  width: var(--fn-canvas-landscape-w);
+  height: var(--fn-canvas-landscape-h);
+}
+
+.fn-canvas--twitter {
+  width: var(--fn-canvas-twitter-w);
+  height: var(--fn-canvas-twitter-h);
+}
+
+/* =========================================================================
+   THEMES — every canvas takes one theme modifier
+   ========================================================================= */
+
+.fn-theme--light    { background: var(--fn-snow);     color: var(--fn-charcoal); }
+.fn-theme--dark     { background: var(--fn-charcoal); color: var(--fn-snow); }
+.fn-theme--midnight { background: var(--fn-midnight); color: var(--fn-snow); }
+.fn-theme--pink     { background: var(--fn-pink);     color: var(--fn-charcoal); }
+
+/* On dark/midnight themes, graphite still has enough contrast for low-emphasis */
+.fn-theme--dark .fn-text-mute,
+.fn-theme--midnight .fn-text-mute {
+  color: var(--fn-graphite);
+}
+.fn-theme--light .fn-text-mute,
+.fn-theme--pink .fn-text-mute {
+  color: var(--fn-graphite);
+}
+
+/* =========================================================================
+   TYPOGRAPHY
+   ========================================================================= */
+
+.fn-display-xl,
+.fn-display-lg,
+.fn-display-md,
+.fn-display-sm {
+  font-family: var(--fn-font-display);
+  font-weight: var(--fn-weight-display);
+  line-height: var(--fn-line-display);
+  letter-spacing: var(--fn-tracking-display);
+}
+
+.fn-display-xl { font-size: var(--fn-size-display-xl); }
+.fn-display-lg { font-size: var(--fn-size-display-lg); }
+.fn-display-md { font-size: var(--fn-size-display-md); }
+.fn-display-sm { font-size: var(--fn-size-display-sm); }
+
+.fn-body-lg { font-size: var(--fn-size-body-lg); line-height: var(--fn-line-body); }
+.fn-body-md { font-size: var(--fn-size-body-md); line-height: var(--fn-line-body); }
+.fn-body-sm { font-size: var(--fn-size-body-sm); line-height: var(--fn-line-body); }
+
+/* Eyebrow label, e.g. "#FortnightAcademy" — see content example 1 */
+.fn-label {
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body-emphasis);
+  font-size: var(--fn-size-label);
+  letter-spacing: var(--fn-tracking-label);
+  text-transform: none;       /* hashtags are sentence/camel case in the brand */
+}
+
+/* Inline pink emphasis, e.g. "Native App vs Hybrid App Development" */
+.fn-pink-word {
+  color: var(--fn-pink);
+}
+
+/* Inline pink underline (alternative emphasis) */
+.fn-pink-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--fn-pink);
+  text-decoration-thickness: 6px;
+  text-underline-offset: 8px;
+}
+
+/* =========================================================================
+   LAYOUT HELPERS
+   ========================================================================= */
+
+.fn-stack       { display: flex; flex-direction: column; gap: var(--fn-pad-line); }
+.fn-stack--lg   { display: flex; flex-direction: column; gap: var(--fn-pad-block); }
+.fn-stack--tight{ display: flex; flex-direction: column; gap: var(--fn-pad-tight); }
+
+.fn-row         { display: flex; flex-direction: row; gap: var(--fn-pad-block); align-items: center; }
+.fn-row--between{ justify-content: space-between; }
+
+.fn-spacer      { flex: 1; }   /* pushes content to top + bottom of canvas */
+
+.fn-text-center { text-align: center; }
+.fn-text-right  { text-align: right; }
+
+/* =========================================================================
+   LOGO PLACEMENT
+   The agent always references logo URLs from Drive 02_Brand_Assets.
+   Pick the variant that contrasts with the theme:
+     - on light/pink themes: pink-on-dark OR full-charcoal wordmark
+     - on dark/midnight themes: pink-on-dark wordmark
+   The logo is the slanted FORT/NIGHT wordmark or the geometric mark.
+   ========================================================================= */
+
+.fn-logo {
+  display: inline-block;
+  height: 80px;      /* default — adjust per slide */
+  width: auto;
+}
+
+.fn-logo--sm { height: 48px; }
+.fn-logo--md { height: 80px; }
+.fn-logo--lg { height: 140px; }
+
+.fn-logo-corner {
+  position: absolute;
+  bottom: var(--fn-pad-slide);
+  right: var(--fn-pad-slide);
+}
+
+.fn-logo-corner-tl {
+  position: absolute;
+  top: var(--fn-pad-slide);
+  left: var(--fn-pad-slide);
+}
+
+/* =========================================================================
+   ASSET PLACEMENT — case study images, screens, device mockups
+   The agent references Drive 01_Approved_Assets URLs directly.
+   ========================================================================= */
+
+.fn-asset {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.fn-asset-full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fn-asset-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* Diagonal split block, matches brand application examples (Mindful Chef,
+   webinar card). Use sparingly. */
+.fn-diagonal-block {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--fn-pink);
+  color: var(--fn-charcoal);
+  padding: var(--fn-pad-block) var(--fn-pad-slide);
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+}
+
+.fn-diagonal-block--dark {
+  background: var(--fn-charcoal);
+  color: var(--fn-snow);
+}
+
+/* =========================================================================
+   RULES & DIVIDERS
+   ========================================================================= */
+
+.fn-rule {
+  height: var(--fn-border-rule);
+  background: var(--fn-pink);
+  border: none;
+  width: 100px;
+}
+
+.fn-rule--full { width: 100%; }
+.fn-rule--dark { background: var(--fn-charcoal); }
+.fn-rule--snow { background: var(--fn-snow); }
+
+/* Brand footer rule (see Brand Guidelines cover) — solid pink bar at the
+   bottom of the canvas, full-width */
+.fn-footer-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 24px;
+  background: var(--fn-pink);
+}
+
+/* =========================================================================
+   CTA & TAG
+   ========================================================================= */
+
+.fn-cta {
+  display: inline-block;
+  padding: 20px 36px;
+  background: var(--fn-pink);
+  color: var(--fn-charcoal);
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body-emphasis);
+  font-size: var(--fn-size-body-md);
+  text-decoration: none;
+}
+
+.fn-cta--dark { background: var(--fn-charcoal); color: var(--fn-snow); }
+.fn-cta--snow { background: var(--fn-snow);     color: var(--fn-charcoal); }
+
+/* Eyebrow tag in a pill-free flat box, see "PRIMARY" / "HIGHLIGHTS"
+   labels on the brand swatches */
+.fn-tag {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--fn-charcoal);
+  color: var(--fn-snow);
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body-emphasis);
+  font-size: var(--fn-size-label);
+  letter-spacing: var(--fn-tracking-label);
+  text-transform: uppercase;
+}
+
+.fn-tag--pink { background: var(--fn-pink); color: var(--fn-charcoal); }
+.fn-tag--snow { background: var(--fn-snow); color: var(--fn-charcoal); }
+
+/* =========================================================================
+   PROHIBITIONS — DO NOT use these patterns
+   (These exist as anti-classes the agent can reference in comments to
+   confirm it isn't doing them.)
+
+   - Do NOT use rounded corners.
+   - Do NOT use gradients except the diagonal pink-to-pink block above.
+   - Do NOT use drop shadows on text.
+   - Do NOT use any colour outside this file's palette.
+   - Do NOT use emoji.
+   - Do NOT use em-dashes in any text content.
+   - Do NOT use serif fonts.
+   - Do NOT use italics for emphasis (use pink word or pink underline).
+   - Do NOT centre long body text. Centre only display-size text.
+   ========================================================================= */
