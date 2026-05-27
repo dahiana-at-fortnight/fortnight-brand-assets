@@ -5,12 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* ---- PRIMARY PALETTE (from Brand Guidelines page 2) ---- */
+  /* ---- PRIMARY PALETTE (from Brand Guidelines) ---- */
   --fn-snow:      #FFFFFF;   /* Primary light. Backgrounds, text on dark. */
   --fn-charcoal:  #000000;   /* Primary dark. Used for high-contrast text/blocks. */
   --fn-graphite:  #8C8C8C;   /* Tertiary. Lighter text, dividers, low-emphasis. */
 
-  /* ---- HIGHLIGHT (from Brand Guidelines page 3) ---- */
+  /* ---- HIGHLIGHT (from Brand Guidelines) ---- */
   --fn-pink:      #FF7D9B;   /* "Punch Pink". CTAs, highlighted words, accents.
                                 Use sparingly — never as a full background
                                 except for explicit highlight blocks. */
