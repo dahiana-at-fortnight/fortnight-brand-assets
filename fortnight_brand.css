@@ -1,17 +1,7 @@
 /* =========================================================================
    FORTNIGHT STUDIO — BRAND CSS
-   For AI-generated social slides, carousels, and visual content.
-   Used by Layer 3 of the n8n marketing workflow.
-
-   The agent writes HTML using these tokens and classes.
-   HTMLCSStoImage (or similar) renders the HTML to PNG.
-
-   Swap font URLs at the top if/when the real Fortnight typefaces are
-   available as web fonts. Everything else is locked to the brand guidelines.
    ========================================================================= */
 
-/* ---- Font imports (Google Fonts placeholders — replace with Fortnight's
-        actual webfont URLs when available) ---- */
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
