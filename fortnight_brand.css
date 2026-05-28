@@ -14,10 +14,10 @@
                                 Use sparingly — never as a full background
                                 except for explicit highlight blocks. */
 
-  /* ---- BRAND-OBSERVED EXTENDED PALETTE (from cover + applications) ----
-     The brand cover uses a near-black navy as background rather than pure
-     black. Included for fidelity to existing assets. */
-  --fn-midnight:  #081B3E;   /* Brand navy. Default background for slides. */
+  /* ---- ACCENT (from Brand Guidelines) ----
+     Navy is an accent colour, used only on the final CTA slide of a carousel.
+     The default slide background is charcoal (#000000), not navy. */
+  --fn-navy:      #081B3E;   /* Brand navy. Accent only — final CTA slide. */
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
@@ -118,12 +118,14 @@ body {
 
 .fn-theme--light    { background: var(--fn-snow);     color: var(--fn-charcoal); }
 .fn-theme--dark     { background: var(--fn-charcoal); color: var(--fn-snow); }
-.fn-theme--midnight { background: var(--fn-midnight); color: var(--fn-snow); }
+.fn-theme--charcoal { background: var(--fn-charcoal); color: var(--fn-snow); }  /* alias of --dark, brand-named */
+.fn-theme--navy     { background: var(--fn-navy);     color: var(--fn-snow); }  /* accent — final CTA slide only */
 .fn-theme--pink     { background: var(--fn-pink);     color: var(--fn-charcoal); }
 
-/* On dark/midnight themes, graphite still has enough contrast for low-emphasis */
+/* On dark themes, graphite still has enough contrast for low-emphasis */
 .fn-theme--dark .fn-text-mute,
-.fn-theme--midnight .fn-text-mute {
+.fn-theme--charcoal .fn-text-mute,
+.fn-theme--navy .fn-text-mute {
   color: var(--fn-graphite);
 }
 .fn-theme--light .fn-text-mute,
@@ -193,13 +195,13 @@ body {
 .fn-text-right  { text-align: right; }
 
 /* =========================================================================
-   STAT CARDS — used for stat grids on midnight slides
+   STAT CARDS — used for stat grids on charcoal slides
    See standards: 6-up grid (150+, 1B+, £350m, etc.) and 4-up grid (awards).
    Cards have rounded corners (deliberate exception to the sharp-corner rule).
    ========================================================================= */
 
 .fn-card {
-  background: var(--fn-midnight);
+  background: var(--fn-charcoal);
   border-radius: 16px;
   padding: var(--fn-pad-block);
   display: flex;
@@ -212,10 +214,10 @@ body {
   color: var(--fn-charcoal);
 }
 
-/* Slightly lifted card on a midnight slide \u2014 a hair lighter than the bg
-   so the card edge reads. Matches the standards. */
+/* Slightly lifted card on a charcoal slide, barely lighter than the bg
+   so the card edge just reads. Matches the standards. */
 .fn-card--lifted {
-  background: #0F2451;
+  background: #0F0F0F;
 }
 
 .fn-card-grid {
@@ -261,7 +263,7 @@ body {
    The agent always references logo URLs from Drive 02_Brand_Assets.
    Pick the variant that contrasts with the theme:
      - on light/pink themes: pink-on-dark OR full-charcoal wordmark
-     - on dark/midnight themes: pink-on-dark wordmark
+     - on charcoal/navy themes: pink-on-dark wordmark
    The logo is the slanted FORT/NIGHT wordmark or the geometric mark.
    ========================================================================= */
 
