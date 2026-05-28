@@ -17,7 +17,7 @@
   /* ---- BRAND-OBSERVED EXTENDED PALETTE (from cover + applications) ----
      The brand cover uses a near-black navy as background rather than pure
      black. Included for fidelity to existing assets. */
-  --fn-midnight:  #0D1729;   /* Cover navy. Use as dark-mode background. */
+  --fn-midnight:  #081B3E;   /* Brand navy. Default background for slides. */
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
@@ -191,6 +191,70 @@ body {
 
 .fn-text-center { text-align: center; }
 .fn-text-right  { text-align: right; }
+
+/* =========================================================================
+   STAT CARDS — used for stat grids on midnight slides
+   See standards: 6-up grid (150+, 1B+, £350m, etc.) and 4-up grid (awards).
+   Cards have rounded corners (deliberate exception to the sharp-corner rule).
+   ========================================================================= */
+
+.fn-card {
+  background: var(--fn-midnight);
+  border-radius: 16px;
+  padding: var(--fn-pad-block);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fn-pad-tight);
+}
+
+.fn-card--light {
+  background: var(--fn-snow);
+  color: var(--fn-charcoal);
+}
+
+/* Slightly lifted card on a midnight slide \u2014 a hair lighter than the bg
+   so the card edge reads. Matches the standards. */
+.fn-card--lifted {
+  background: #0F2451;
+}
+
+.fn-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--fn-pad-line);
+  width: 100%;
+}
+
+.fn-card-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Stat typography inside cards */
+.fn-stat-number {
+  font-family: var(--fn-font-display);
+  font-weight: var(--fn-weight-display);
+  font-size: var(--fn-size-display-md);
+  line-height: var(--fn-line-display);
+  letter-spacing: var(--fn-tracking-display);
+  color: var(--fn-pink);
+}
+
+.fn-stat-label {
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body-emphasis);
+  font-size: var(--fn-size-label);
+  letter-spacing: var(--fn-tracking-label);
+  text-transform: uppercase;
+  color: var(--fn-graphite);
+}
+
+.fn-stat-desc {
+  font-family: var(--fn-font-body);
+  font-weight: var(--fn-weight-body-emphasis);
+  font-size: var(--fn-size-body-md);
+  line-height: var(--fn-line-body);
+  color: var(--fn-snow);
+}
 
 /* =========================================================================
    LOGO PLACEMENT
