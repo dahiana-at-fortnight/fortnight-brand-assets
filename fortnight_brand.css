@@ -217,10 +217,16 @@ body {
   right: var(--fn-pad-slide);
 }
 
-.fn-logo-corner-tl {
+.fn-logo-hero {
   position: absolute;
   top: var(--fn-pad-slide);
   left: var(--fn-pad-slide);
+}
+
+.fn-logo-corner {
+  position: absolute;
+  bottom: var(--fn-pad-slide);
+  right: var(--fn-pad-slide);
 }
 
 /* =========================================================================
