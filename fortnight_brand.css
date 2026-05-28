@@ -223,6 +223,13 @@ body {
   left: var(--fn-pad-slide);
 }
 
+.fn-logo-corner-tr,
+.fn-logo-hero-right {
+  position: absolute;
+  top: var(--fn-pad-slide);
+  right: var(--fn-pad-slide);
+}
+
 /* =========================================================================
    ASSET PLACEMENT — case study images, screens, device mockups
    The agent references Drive 01_Approved_Assets URLs directly.
