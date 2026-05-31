@@ -17,7 +17,7 @@
   /* ---- ACCENT (from Brand Guidelines) ----
      Navy is an accent colour, used only on the final CTA slide of a carousel.
      The default slide background is charcoal (#000000), not navy. */
-  --fn-navy:      #081B3E;   /* Brand navy. Accent only — final CTA slide. */
+  --fn-navy:      #0B1220;   /* Brand navy. Accent only — final CTA slide. */
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
