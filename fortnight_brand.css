@@ -15,9 +15,10 @@
                                 except for explicit highlight blocks. */
 
   /* ---- ACCENT (from Brand Guidelines) ----
-     Navy is an accent colour, used only on the final CTA slide of a carousel.
-     The default slide background is charcoal (#000000), not navy. */
-  --fn-navy:      #0B1220;   /* Brand navy. Accent only — final CTA slide. */
+     Navy is the default slide background for carousels. True black (#000000)
+     is kept for stat cards and any "lifted card on a dark slide" pattern so
+     cards still read against the navy bg. */
+  --fn-navy:      #081B3E;   /* Brand navy. Default carousel background. */
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
@@ -118,8 +119,8 @@ body {
 
 .fn-theme--light    { background: var(--fn-snow);     color: var(--fn-charcoal); }
 .fn-theme--dark     { background: var(--fn-charcoal); color: var(--fn-snow); }
-.fn-theme--charcoal { background: var(--fn-charcoal); color: var(--fn-snow); }  /* alias of --dark, brand-named */
-.fn-theme--navy     { background: var(--fn-navy);     color: var(--fn-snow); }  /* accent — final CTA slide only */
+.fn-theme--charcoal { background: var(--fn-navy);     color: var(--fn-snow); }  /* default carousel bg — navy, despite the name */
+.fn-theme--navy     { background: var(--fn-navy);     color: var(--fn-snow); }  /* explicit alias */
 .fn-theme--pink     { background: var(--fn-pink);     color: var(--fn-charcoal); }
 
 /* On dark themes, graphite still has enough contrast for low-emphasis */
