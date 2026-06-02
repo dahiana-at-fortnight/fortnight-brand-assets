@@ -366,6 +366,29 @@ body {
 }
 
 /* =========================================================================
+   CASE STUDY
+   ========================================================================= */
+
+.fn-page                      /* base, 297×210mm, page-break-after: always */
+.fn-page--cover               /* navy, centred stack chrome */
+.fn-page--outro               /* navy, centred stack with snow plate */
+.fn-page--intro               /* snow, intro archetype */
+.fn-page--process             /* snow, process archetype */
+.fn-page--screens             /* snow, up to 3 image slots in a row */
+.fn-page--brand-app           /* snow, single hero asset */
+.fn-page--quote               /* snow, quote archetype */
+.fn-page--quote--prominent    /* full-bleed accent colour quote */
+.fn-page--results             /* navy, metric grid in pink/snow */
+
+.fn-page-chrome               /* shared cover/outro chrome wrapper */
+.fn-page-number               /* page number element, fn-label style */
+.fn-stack--centred            /* vertical centre stack for cover/outro */
+.fn-snow-plate                /* navy text on snow plate, for "LET'S PARTNER UP" */
+.fn-screen-row                /* horizontal row of up to 3 mockups */
+.fn-quote-mark                /* oversized opening quotation mark, pink */
+.fn-quote-body                /* quote text, display-md, navy */
+.fn-quote-attribution         /* name + role stack with pink rule */
+/* =========================================================================
    CTA & TAG
    ========================================================================= */
 
