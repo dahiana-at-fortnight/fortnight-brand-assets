@@ -4,21 +4,20 @@
 
 
 :root {
-  /* ---- PRIMARY PALETTE (from Brand Guidelines) ---- */
+  /* ---- PRIMARY PALETTE ---- */
   --fn-snow:      #FFFFFF;   /* Primary light. Backgrounds, text on dark. */
   --fn-charcoal:  #000000;   /* Primary dark. Used for high-contrast text/blocks. */
   --fn-graphite:  #8C8C8C;   /* Tertiary. Lighter text, dividers, low-emphasis. */
 
-  /* ---- HIGHLIGHT (from Brand Guidelines) ---- */
+  /* ---- HIGHLIGHT---- */
   --fn-pink:      #FF7D9B;   /* "Punch Pink". CTAs, highlighted words, accents.
                                 Use sparingly — never as a full background
                                 except for explicit highlight blocks. */
 
-  /* ---- ACCENT (from Brand Guidelines) ----
-     Navy is the default slide background for carousels. True black (#000000)
-     is kept for stat cards and any "lifted card on a dark slide" pattern so
-     cards still read against the navy bg. */
-  --fn-navy:      #081B3E;   /* Brand navy. Default carousel background. */
+/* ---- ACCENT  ----
+   Navy is an accent colour, used only on the final CTA slide of a carousel.
+   The default slide background is charcoal (#000000). */
+--fn-navy:      #081B3E;   /* Brand navy. Accent only — final CTA slide. */
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
