@@ -17,7 +17,7 @@
 /* ---- ACCENT  ----
    Navy is an accent colour, used only on the final CTA slide of a carousel.
    The default slide background is charcoal (#000000). */
---fn-navy:      #081B3E;   /* Brand navy. Accent only — final CTA slide. */
+  --fn-navy:      #081B3E;   
 
   /* ---- TYPOGRAPHY ---- */
   --fn-font-display: 'Archivo', 'Inter', system-ui, sans-serif;
@@ -259,7 +259,6 @@ body {
 
 /* =========================================================================
    LOGO PLACEMENT
-   The agent always references logo URLs from Drive 02_Brand_Assets.
    Pick the variant that contrasts with the theme:
      - on light/pink themes: pink-on-dark OR full-charcoal wordmark
      - on charcoal/navy themes: pink-on-dark wordmark
@@ -297,7 +296,6 @@ body {
 
 /* =========================================================================
    ASSET PLACEMENT — case study images, screens, device mockups
-   The agent references Drive 01_Approved_Assets URLs directly.
    ========================================================================= */
 
 .fn-asset {
@@ -319,8 +317,7 @@ body {
   z-index: 2;
 }
 
-/* Diagonal split block, matches brand application examples (Mindful Chef,
-   webinar card). Use sparingly. */
+/* Diagonal split block, matches brand application examples. Use sparingly. */
 .fn-diagonal-block {
   position: absolute;
   bottom: 0;
@@ -352,7 +349,7 @@ body {
 .fn-rule--dark { background: var(--fn-charcoal); }
 .fn-rule--snow { background: var(--fn-snow); }
 
-/* Brand footer rule (see Brand Guidelines cover) — solid pink bar at the
+/* Brand footer rule — solid pink bar at the
    bottom of the canvas, full-width */
 .fn-footer-bar {
   position: absolute;
