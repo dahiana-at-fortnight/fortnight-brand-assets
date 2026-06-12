@@ -74,11 +74,10 @@ body {
   font-weight: var(--fn-weight-body);
   line-height: var(--fn-line-body);
   color: var(--fn-charcoal);
-  background: var(--fn-snow);
+  background: var(--fn-charcoal);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
 /* =========================================================================
    CANVAS — every slide is one of these
    The agent picks the canvas class based on platform/format.
@@ -330,7 +329,7 @@ body {
   right: 0;
   background: var(--fn-pink);
   color: var(--fn-charcoal);
-  padding: var(--fn-pad-block) var(--fn-pad-slide);
+  padding: 220px var(--fn-pad-slide) var(--fn-pad-block);
   clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
 }
 
