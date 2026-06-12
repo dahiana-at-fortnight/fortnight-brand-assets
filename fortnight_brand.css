@@ -117,8 +117,8 @@ body {
 
 .fn-theme--light    { background: var(--fn-snow);     color: var(--fn-charcoal); }
 .fn-theme--dark     { background: var(--fn-charcoal); color: var(--fn-snow); }
-.fn-theme--charcoal { background: var(--fn-navy);     color: var(--fn-snow); }  /* default carousel bg — navy, despite the name */
-.fn-theme--navy     { background: var(--fn-navy);     color: var(--fn-snow); }  /* explicit alias */
+.fn-theme--charcoal { background: var(--fn-charcoal); color: var(--fn-snow); }
+.fn-theme--navy     { background: var(--fn-navy);     color: var(--fn-snow); }
 .fn-theme--pink     { background: var(--fn-pink);     color: var(--fn-charcoal); }
 
 /* On dark themes, graphite still has enough contrast for low-emphasis */
